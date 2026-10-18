@@ -1,25 +1,23 @@
-from typing import ClassVar, final
-from items.protocols import Vehicle
+from typing import ClassVar
+from dataclasses import dataclass
+
+from items.contracts import Vehicle, EnergyConsumer
 
 
+@dataclass
 class Skateboard(Vehicle):
-    """ """
+    """Скейтборд любого типа."""
     name: ClassVar[str] = "skateboard"
 
-    model: str
-    brand: str
 
-    uuid: str
-    ease: int
-
-
-@final
-class ESkateboard(Skateboard):
-    """ """
-    name: ClassVar[str] = "e-skateboard"
-
-
-@final
-class KSkateboard(Skateboard):
-    """ """
+@dataclass
+class K_Skateboard(Skateboard):
+    """Классический скейтборд."""
     name: ClassVar[str] = "k-skateboard"
+
+
+@dataclass
+class E_Skateboard(Skateboard, EnergyConsumer):
+    """Электрический скейтборд."""
+    name: ClassVar[str] = "e-skateboard"
+    amount: float
