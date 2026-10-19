@@ -19,7 +19,10 @@ class SimpleManager(Manager):
     def audit(self: Self, item: Item, /) -> bool:
         return self.auditor.audit(item)
 
-    def store(self: Self, item: Item, /) -> bool:
+    def add(self: Self, item: Item, /) -> bool:
         if not self.audit(item):
             return False
-        return self.storage.store(item)
+        return self.storage.add(item)
+
+    def rem(self: Self, uuid: str, /) -> bool:
+        return self.storage.rem(uuid)

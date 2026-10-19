@@ -13,7 +13,7 @@ class TestContainer(unittest.TestCase):
 
         self.assertIs(context.storage, context.storage)
         self.assertIs(context.manager, context.manager)
-        self.assertTrue(context.manager.store(item))
+        self.assertTrue(context.manager.add(item))
         self.assertEqual(context.storage.filter(lambda _: True), [item])
 
 

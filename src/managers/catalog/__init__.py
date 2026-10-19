@@ -1,1 +1,1 @@
-from .simple import *
+from .simple import SimpleManager

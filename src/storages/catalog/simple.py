@@ -11,11 +11,18 @@ class SimpleStorage(Storage):
     def __init__(self: Self, /) -> None:
         self.items = {}
 
-    def store(self: Self, item: Item, /) -> bool:
+    def add(self: Self, item: Item, /) -> bool:
         if item.uuid in self.items:
             return False
         
         self.items[item.uuid] = item
+        return True
+
+    def rem(self: Self, uuid: str, /) -> bool:
+        if uuid not in self.items:
+            return False
+
+        del self.items[uuid]
         return True
 
     def filter(self: Self, fn: Callable[[Item], bool]) -> list[Item]:

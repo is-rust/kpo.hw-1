@@ -16,10 +16,10 @@ class TestUtils(unittest.TestCase):
     def test_energy_consumption(self) -> None:
         storage = SimpleStorage()
 
-        storage.store(E_Bicycle('1', 'xiaomi', 'm1', amount=5, ease=8))
-        storage.store(K_Bicycle('2', 'xiaomi', 'm2', 7))
-        storage.store(C_Charger('3', 'xiaomi', 'm3', 3))
-        storage.store(S_Helmet('4', 'xiaomi', 'm4'))
+        storage.add(E_Bicycle('1', 'xiaomi', 'm1', amount=5, ease=8))
+        storage.add(K_Bicycle('2', 'xiaomi', 'm2', 7))
+        storage.add(C_Charger('3', 'xiaomi', 'm3', 3))
+        storage.add(S_Helmet('4', 'xiaomi', 'm4'))
 
         self.assertEqual(get_total_energy_consumption(storage), 8)
 
@@ -30,13 +30,13 @@ class TestUtils(unittest.TestCase):
         storage = SimpleStorage()
 
         bicycle_5 = K_Bicycle('1', 'xiaomi', 'm1', 5)
-        storage.store(bicycle_5)
+        storage.add(bicycle_5)
 
         bicycle_6 = K_Bicycle('2', 'xiaomi', 'm2', 6)
-        storage.store(bicycle_6)
+        storage.add(bicycle_6)
 
         helmet = S_Helmet('3', 'xiaomi', 'm3')
-        storage.store(helmet)
+        storage.add(helmet)
 
         self.assertEqual(get_beginner_friendly_vehicles_list(storage), [bicycle_6])
 
@@ -44,10 +44,10 @@ class TestUtils(unittest.TestCase):
         storage = SimpleStorage()
         
         bicycle = K_Bicycle('1', 'xiaomi', 'm1', 7)
-        storage.store(bicycle)
+        storage.add(bicycle)
 
         helmet = S_Helmet('2', 'xiaomi', 'm2')
-        storage.store(helmet)
+        storage.add(helmet)
 
         self.assertEqual(get_all_items_list(storage), [bicycle, helmet])
 

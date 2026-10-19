@@ -24,7 +24,7 @@ class TestManagers(unittest.TestCase):
         manager = SimpleManager(auditor=FakeAuditor(True), storage=storage)
         item = K_Bicycle('1', 'xiaomi', 'm1', 7)
 
-        self.assertTrue(manager.store(item))
+        self.assertTrue(manager.add(item))
         self.assertEqual(storage.filter(lambda _: True), [item])
 
     def test_rejected_item(self) -> None:
@@ -32,7 +32,7 @@ class TestManagers(unittest.TestCase):
         manager = SimpleManager(auditor=FakeAuditor(False), storage=storage)
         item = K_Bicycle('1', 'xiaomi', 'm1', 7)
 
-        self.assertFalse(manager.store(item))
+        self.assertFalse(manager.add(item))
         self.assertEqual(storage.filter(lambda _: True), [])
 
     def test_audit_method(self) -> None:

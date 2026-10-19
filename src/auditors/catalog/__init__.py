@@ -1,1 +1,1 @@
-from .brands import *
+from .brands import BrandAuditor

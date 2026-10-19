@@ -9,6 +9,10 @@ class Manager(Protocol):
         """Проводит аудит переданного предмета."""
         ...
 
-    def store(self: Self, item: Item, /) -> bool:
+    def add(self: Self, item: Item, /) -> bool:
         """Отправляет на хранение переданный предмет."""
+        ...
+
+    def rem(self: Self, uuid: str, /) -> bool:
+        """Забирает с хранения переданный предмет."""
         ...

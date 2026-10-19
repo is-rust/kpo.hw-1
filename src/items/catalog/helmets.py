@@ -1,4 +1,4 @@
-from typing import ClassVar
+from typing import ClassVar, Self
 from dataclasses import dataclass
 
 from items.contracts import Item
@@ -8,6 +8,11 @@ from items.contracts import Item
 class Helmet(Item):
     """Шлем любого типа."""
     name: ClassVar[str] = "helmet"
+
+    def __post_init__(self: Self) -> None:
+        if type(self) is Helmet:
+            raise TypeError('cannot instantiate abstract class Helmet')
+        super().__post_init__()
 
 
 @dataclass(repr=False)

@@ -1,4 +1,4 @@
-from typing import ClassVar
+from typing import ClassVar, Self
 from dataclasses import dataclass
 
 from items.contracts import EnergyConsumer
@@ -8,6 +8,11 @@ from items.contracts import EnergyConsumer
 class Charger(EnergyConsumer):
     """Зарядник любого типа."""
     name: ClassVar[str] = "charger"
+
+    def __post_init__(self: Self) -> None:
+        if type(self) is Charger:
+            raise TypeError('cannot instantiate abstract class Charger')
+        super().__post_init__()
 
 
 @dataclass(repr=False)
