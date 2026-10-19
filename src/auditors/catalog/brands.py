@@ -1,7 +1,7 @@
 from typing import Self, final
 
 from items.contracts import Item
-from auditor.contracts import Auditor
+from auditors.contracts import Auditor
 
 
 @final

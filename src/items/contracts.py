@@ -1,4 +1,4 @@
-from typing import ClassVar
+from typing import ClassVar, Self
 from abc import ABC
 
 from dataclasses import dataclass
@@ -13,14 +13,17 @@ class Item(ABC):
     brand: str
     model: str
 
+    def __repr__(self: Self) -> str:
+        return f'{{{self.name} #{self.uuid} // ({self.brand}, {self.model})}}'
 
-@dataclass
+
+@dataclass(repr=False)
 class Vehicle(Item, ABC):
     """Транспорт."""
     ease: int
 
 
-@dataclass
+@dataclass(repr=False)
 class EnergyConsumer(Item, ABC):
     """Потребитель энергии."""
     amount: float

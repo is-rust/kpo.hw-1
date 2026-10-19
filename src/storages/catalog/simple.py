@@ -1,7 +1,7 @@
 from typing import Self, final, Callable
 
 from items.contracts import Item
-from storage.contracts import Storage
+from storages.contracts import Storage
 
 
 @final

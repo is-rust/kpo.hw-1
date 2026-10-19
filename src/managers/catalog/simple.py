@@ -1,10 +1,10 @@
 from typing import Self, final
 
 from items.contracts import Item
-from auditor.contracts import Auditor
-from storage.contracts import Storage
+from auditors.contracts import Auditor
+from storages.contracts import Storage
 
-from manager.contracts import Manager
+from managers.contracts import Manager
 
 
 @final
